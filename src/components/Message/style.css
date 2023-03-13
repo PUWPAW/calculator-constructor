@@ -1,0 +1,28 @@
+.message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.message__icon {
+  margin-bottom: 12px;
+}
+
+.message__title {
+  margin-bottom: 4px;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #5d5fef;
+}
+
+.message__subtitle {
+  max-width: 106px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #6b7280;
+}

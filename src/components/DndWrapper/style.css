@@ -1,0 +1,46 @@
+.editable {
+  cursor: move;
+}
+
+.hover {
+  position: relative;
+  border-top: 1px solid #5d5fef;
+}
+
+.hover::before,
+.hover::after {
+  content: "";
+  position: absolute;
+  top: -2.5px;
+  left: 0;
+  transform: rotate(45deg);
+  width: 4px;
+  height: 4px;
+  background-color: #5d5fef;
+}
+
+.hover::after {
+  right: 0;
+  left: auto;
+}
+
+.hover .container {
+  opacity: 0;
+}
+
+.forbid {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.forbid > div {
+  box-shadow: none;
+}
+
+.non-shadow .container {
+  box-shadow: none;
+}
+
+.blocked {
+  cursor: no-drop;
+}

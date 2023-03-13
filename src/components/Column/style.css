@@ -1,0 +1,17 @@
+.column {
+  height: 448px;
+  width: 240px;
+  background-color: #ffffff;
+}
+
+.column--editor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #c4c4c4;
+}
+
+.column--hover {
+  background-color: #f0f9ff;
+  transition: background-color 0.3s ease-in-out;
+}

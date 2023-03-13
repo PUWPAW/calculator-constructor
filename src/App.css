@@ -1,0 +1,20 @@
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  height: 100vh;
+}
+
+.App__constructor {
+  transition: all 0.3s ease;
+}
+
+.App__constructor--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.App__editor {
+  position: relative;
+}
