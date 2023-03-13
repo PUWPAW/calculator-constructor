@@ -12,7 +12,7 @@ import Container from "../Container";
 import "./style.css";
 
 function Numpad() {
-  const { isEdit } = useGetCalculatorStateSelector();
+  const { isEdit, displayValue, waitingForOperand } = useGetCalculatorStateSelector();
   const dispatch = useDispatch();
 
   return (
@@ -24,7 +24,7 @@ function Numpad() {
             size={digit === 0 ? "large" : "medium"}
             value={digit}
             onClick={() => {
-              if (!isEdit) {
+              if (!isEdit && (displayValue.length < 5 || waitingForOperand)) {
                 dispatch(inputDigit(digit));
               }
             }}
@@ -35,7 +35,7 @@ function Numpad() {
         <Button
           size="medium"
           onClick={() => {
-            if (!isEdit) {
+            if (!isEdit && (displayValue.length < 5 || waitingForOperand)) {
               dispatch(inputDot());
             }
           }}

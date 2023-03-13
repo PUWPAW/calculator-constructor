@@ -2,7 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import { useDispatch } from "react-redux";
 
-import { setEdit } from "../../store/slices/calculator";
+import { setConstructorType, setRuntimeType } from "../../store/slices/calculator";
 import { useGetCalculatorStateSelector } from "../../store/slices/calculator/selectors";
 
 import EyeIcon from "../Icons/Eye";
@@ -20,7 +20,7 @@ function Toggle() {
           "toggle__button--active": !isEdit,
         })}
         onClick={() => {
-          dispatch(setEdit());
+          dispatch(setRuntimeType());
         }}
       >
         <EyeIcon stroke={!isEdit ? "#5D5FEF" : "#4D5562"} />
@@ -31,7 +31,7 @@ function Toggle() {
           "toggle__button--active": isEdit,
         })}
         onClick={() => {
-          dispatch(setEdit());
+          dispatch(setConstructorType());
         }}
       >
         <SelectorIcon stroke={isEdit ? "#5D5FEF" : "#4D5562"} />

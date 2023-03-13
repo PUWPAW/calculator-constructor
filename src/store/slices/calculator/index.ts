@@ -56,8 +56,15 @@ const calculatorSlice = createSlice({
       state.waitingForOperand = true;
       state.operator = action.payload;
     },
-    setEdit: (state) => {
-      state.isEdit = !state.isEdit;
+    setConstructorType: (state) => {
+      state.isEdit = true;
+      state.value = null;
+      state.displayValue = "0";
+      state.operator = null;
+      state.waitingForOperand = false;
+    },
+    setRuntimeType: (state) => {
+      state.isEdit = false;
       state.value = null;
       state.displayValue = "0";
       state.operator = null;
@@ -66,6 +73,6 @@ const calculatorSlice = createSlice({
   },
 });
 
-export const { inputDigit, inputDot, performOperation, setEdit } = calculatorSlice.actions;
+export const { inputDigit, inputDot, performOperation, setConstructorType, setRuntimeType } = calculatorSlice.actions;
 
 export default calculatorSlice.reducer;
