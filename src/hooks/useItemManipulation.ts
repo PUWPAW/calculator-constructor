@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { Item } from "../types/item";
-import { ITEM_NAME } from "../types/item-name";
+import { type Item } from 'types/item';
+import { ITEM_NAME } from 'types/item-name';
 
 const useItemManipulation = () => {
   const [items, setItems] = useState<Item[]>([]);
@@ -11,12 +11,20 @@ const useItemManipulation = () => {
   };
 
   const onMoveItemHandler = (dragIndex: number, hoverIndex: number) => {
-    const dragItem = items[dragIndex];
+    const dragItem: Item = items[dragIndex];
 
-    if (dragItem && dragItem.name !== ITEM_NAME.DISPLAY) {
+    if (dragItem === undefined) {
+      return;
+    }
+
+    if (dragItem.name !== ITEM_NAME.DISPLAY) {
       setItems((prev) => {
         const copy = [...prev];
         const prevItem = copy.splice(hoverIndex, 1, dragItem);
+
+        if (prevItem[0] === undefined) {
+          return prev;
+        }
 
         if (prevItem[0]?.name === ITEM_NAME.DISPLAY) {
           return prev;
@@ -33,7 +41,7 @@ const useItemManipulation = () => {
     items,
     setItems,
     onRemoveItemHandler,
-    onMoveItemHandler,
+    onMoveItemHandler
   };
 };
 

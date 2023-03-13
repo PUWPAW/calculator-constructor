@@ -4,6 +4,7 @@ interface CalculatorState {
   operator: string | null;
   waitingForOperand: boolean;
   isEdit: boolean;
+  error: string | null;
 }
 
 export default CalculatorState;

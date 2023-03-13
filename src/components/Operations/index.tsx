@@ -1,15 +1,15 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React from 'react';
+import { useDispatch } from 'react-redux';
 
-import { useGetCalculatorStateSelector } from "../../store/slices/calculator/selectors";
-import { performOperation } from "../../store/slices/calculator";
+import { useGetCalculatorStateSelector } from 'store/slices/calculator/selectors';
+import { performOperation } from 'store/slices/calculator';
 
-import operations from "../../constants/operations";
+import operations from 'constants/operations';
 
-import Button from "../Button";
-import Container from "../Container";
+import Button from 'components/Button';
+import Container from 'components/Container';
 
-import "./style.css";
+import './style.css';
 
 function Operations() {
   const { isEdit } = useGetCalculatorStateSelector();

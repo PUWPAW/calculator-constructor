@@ -1,7 +1,11 @@
 .display {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   width: 232px;
-  padding: 25px 8px 4px;
-  font-family: "Inter", sans-serif;
+  min-height: 51px;
+  padding: 4px 8px;
+  font-family: 'Inter', sans-serif;
   font-weight: 800;
   font-size: 19px;
   line-height: 23px;
@@ -12,13 +16,16 @@
 }
 
 .display--zero {
-  padding: 4px 8px;
   font-size: 36px;
   line-height: 43.57px;
 }
 
 .display--error {
-  padding-top: 19px;
   font-size: 24px;
   line-height: 29px;
+}
+
+.display--big-number-error {
+  font-size: 20px;
+  line-height: 1;
 }

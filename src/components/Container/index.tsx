@@ -1,13 +1,20 @@
-import React from "react";
-import clsx from "clsx";
+import React, { type ReactNode } from 'react';
+import clsx from 'clsx';
 
-import "./style.css";
+import './style.css';
 
-type ContainerProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+interface ContainerProps
+  extends React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+  > {
+  children: ReactNode;
+  className?: string;
+}
 
 function Container({ children, className, ...props }: ContainerProps) {
   return (
-    <div className={clsx("container", className)} {...props}>
+    <div className={clsx('container', className)} {...props}>
       {children}
     </div>
   );

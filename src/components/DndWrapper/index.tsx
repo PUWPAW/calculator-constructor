@@ -1,14 +1,18 @@
-import React from "react";
-import clsx from "clsx";
+import React from 'react';
+import clsx from 'clsx';
 
-import { Item } from "../../types/item";
-import { ITEM_NAME } from "../../types/item-name";
+import { type Item } from 'types/item';
+import { ITEM_NAME } from 'types/item-name';
 
-import useDragAndDrop from "../../hooks/useDragAndDrop";
+import useDragAndDrop from 'hooks/useDragAndDrop';
 
-import "./style.css";
+import './style.css';
 
-interface DndWrapperProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+interface DndWrapperProps
+  extends React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+  > {
   setItems: React.Dispatch<React.SetStateAction<Item[]>>;
   name: string;
   index: number;
@@ -32,7 +36,13 @@ function DndWrapper({
   removeItemHandler,
   ...props
 }: DndWrapperProps) {
-  const { isDragging, isEdit, ref } = useDragAndDrop({ index, onMoveItemHandler, setItems, name, canDrag });
+  const { isDragging, isEdit, ref } = useDragAndDrop({
+    index,
+    onMoveItemHandler,
+    setItems,
+    name,
+    canDrag
+  });
 
   return (
     <div
@@ -43,7 +53,7 @@ function DndWrapper({
         forbid: isForbid,
         editable: isEdit,
         blocked: isEdit && name === ITEM_NAME.DISPLAY && isEditor,
-        "non-shadow": isEditor,
+        'non-shadow': isEditor
       })}
       {...props}
     >

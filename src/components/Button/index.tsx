@@ -1,24 +1,36 @@
-import React, { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
-import clsx from "clsx";
+import React, {
+  type ButtonHTMLAttributes,
+  type DetailedHTMLProps
+} from 'react';
+import clsx from 'clsx';
 
-import { useGetCalculatorStateSelector } from "../../store/slices/calculator/selectors";
+import { useGetCalculatorStateSelector } from 'store/slices/calculator/selectors';
 
-import "./style.css";
+import './style.css';
 
-interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
-  size?: "default" | "medium" | "large" | "extraLarge";
+interface ButtonProps
+  extends DetailedHTMLProps<
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
+  size?: 'default' | 'medium' | 'large' | 'extraLarge';
 }
 
-function Button({ children, size = "default", className, ...props }: ButtonProps) {
+function Button({
+  children,
+  size = 'default',
+  className,
+  ...props
+}: ButtonProps) {
   const { isEdit } = useGetCalculatorStateSelector();
 
   return (
     <button
-      className={clsx("button", className, {
-        medium: size === "medium",
-        large: size === "large",
-        "extra-large": size === "extraLarge",
-        edit: isEdit,
+      className={clsx('button', className, {
+        medium: size === 'medium',
+        large: size === 'large',
+        'extra-large': size === 'extraLarge',
+        edit: isEdit
       })}
       {...props}
     >

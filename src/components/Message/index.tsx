@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import AddIcon from "../Icons/Add";
+import AddIcon from 'components/Icons/Add';
 
-import "./style.css";
+import './style.css';
 
 function Message() {
   return (

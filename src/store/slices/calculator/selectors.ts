@@ -1,10 +1,10 @@
-import { useSelector } from "react-redux";
-import { type RootState } from "../../index";
+import { useSelector } from 'react-redux';
+
+import { type RootState } from 'store';
 
 export const useGetCalculatorStateSelector = () => {
-  const { displayValue, operator, value, waitingForOperand, isEdit } = useSelector(
-    (state: RootState) => state.calculator
-  );
+  const { displayValue, operator, value, waitingForOperand, isEdit, error } =
+    useSelector((state: RootState) => state.calculator);
 
-  return { displayValue, operator, value, waitingForOperand, isEdit };
+  return { displayValue, operator, value, waitingForOperand, isEdit, error };
 };

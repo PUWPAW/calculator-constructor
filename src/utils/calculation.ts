@@ -1,15 +1,15 @@
 const calculation = (a: number, b: number, sign: string) => {
   switch (sign) {
-    case "/": {
+    case '/': {
       return a / b;
     }
-    case "x": {
+    case 'x': {
       return a * b;
     }
-    case "-": {
+    case '-': {
       return a - b;
     }
-    case "+": {
+    case '+': {
       return a + b;
     }
 

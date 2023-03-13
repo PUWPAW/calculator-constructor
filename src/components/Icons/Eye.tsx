@@ -1,8 +1,19 @@
-import React, { SVGProps } from "react";
+import React, { type SVGProps } from 'react';
 
-function EyeIcon({ width = 20, height = 20, stroke = "#4D5562", ...props }: SVGProps<SVGSVGElement>) {
+function EyeIcon({
+  width = 20,
+  height = 20,
+  stroke = '#4D5562',
+  ...props
+}: SVGProps<SVGSVGElement>) {
   return (
-    <svg width={width} height={height} viewBox="0 0 20 20" fill="none" {...props}>
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 20 20"
+      fill="none"
+      {...props}
+    >
       <path
         d="M11.7678 11.7678C12.2366 11.2989 12.5 10.663 12.5 10C12.5 9.33696 12.2366 8.70107 11.7678 8.23223C11.2989 7.76339 10.663 7.5 10 7.5C9.33696 7.5 8.70107 7.76339 8.23223 8.23223C7.76339 8.70107 7.5 9.33696 7.5 10C7.5 10.663 7.76339 11.2989 8.23223 11.7678C8.70107 12.2366 9.33696 12.5 10 12.5C10.663 12.5 11.2989 12.2366 11.7678 11.7678Z"
         stroke={stroke}

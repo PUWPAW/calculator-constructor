@@ -1,5 +1,5 @@
-import { type COLUMN_NAME } from "./column-name";
-import { type ITEM_NAME } from "./item-name";
+import { type COLUMN_NAME } from './column-name';
+import { type ITEM_NAME } from './item-name';
 
 export interface Item {
   id: number;

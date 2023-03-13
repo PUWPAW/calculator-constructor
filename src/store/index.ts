@@ -1,10 +1,11 @@
-import { configureStore } from "@reduxjs/toolkit";
-import calculatorSlice from "./slices/calculator";
+import { configureStore } from '@reduxjs/toolkit';
+
+import calculatorSlice from './slices/calculator';
 
 export const store = configureStore({
   reducer: {
-    calculator: calculatorSlice,
-  },
+    calculator: calculatorSlice
+  }
 });
 
 export type RootState = ReturnType<typeof store.getState>;

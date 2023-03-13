@@ -1,29 +1,52 @@
-import React, { type HTMLAttributes } from "react";
-import clsx from "clsx";
+import React, { type HTMLAttributes, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import clsx from 'clsx';
 
-import { useGetCalculatorStateSelector } from "../../store/slices/calculator/selectors";
+import { useGetCalculatorStateSelector } from 'store/slices/calculator/selectors';
+import { setError } from 'store/slices/calculator';
 
-import Container from "../Container";
+import bigNumber from 'constants/big-number';
+import ERROR_MESSAGE from 'constants/error-message';
 
-import "./style.css";
+import Container from 'components/Container';
 
-type DisplayProps = React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+import './style.css';
 
-function Display({ className, onDoubleClick, ...props }: DisplayProps) {
-  const { displayValue } = useGetCalculatorStateSelector();
+interface DisplayProps
+  extends React.DetailedHTMLProps<
+    HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+  > {
+  className?: string;
+}
 
-  const value = displayValue === "Infinity" ? "Не определено" : displayValue;
+function Display({ className, ...props }: DisplayProps) {
+  const {
+    displayValue,
+    value: calcValue,
+    error
+  } = useGetCalculatorStateSelector();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (displayValue === 'Infinity') {
+      dispatch(setError(ERROR_MESSAGE.INFINITY));
+    } else if (calcValue !== null && calcValue > bigNumber) {
+      dispatch(setError(ERROR_MESSAGE.BIG_NUMBER));
+    }
+  }, [displayValue, calcValue]);
 
   return (
     <Container>
       <div
-        className={clsx("display", className, {
-          "display--zero": typeof value === "string" && value === "0",
-          "display--error": typeof value === "string" && value !== "0",
+        className={clsx('display', className, {
+          'display--zero': displayValue === '0',
+          'display--error': error === ERROR_MESSAGE.INFINITY,
+          'display--big-number-error': error === ERROR_MESSAGE.BIG_NUMBER
         })}
         {...props}
       >
-        {value}
+        {error ?? displayValue}
       </div>
     </Container>
   );

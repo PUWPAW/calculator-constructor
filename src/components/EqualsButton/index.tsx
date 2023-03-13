@@ -1,11 +1,11 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React from 'react';
+import { useDispatch } from 'react-redux';
 
-import { performOperation } from "../../store/slices/calculator";
-import { useGetCalculatorStateSelector } from "../../store/slices/calculator/selectors";
+import { performOperation } from 'store/slices/calculator';
+import { useGetCalculatorStateSelector } from 'store/slices/calculator/selectors';
 
-import Button from "../Button";
-import Container from "../Container";
+import Button from 'components/Button';
+import Container from 'components/Container';
 
 function EqualsButton() {
   const { isEdit } = useGetCalculatorStateSelector();
@@ -17,7 +17,7 @@ function EqualsButton() {
         size="extraLarge"
         onClick={() => {
           if (!isEdit) {
-            dispatch(performOperation("="));
+            dispatch(performOperation('='));
           }
         }}
       >

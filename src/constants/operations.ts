@@ -1,3 +1,3 @@
-const operations = ["/", "x", "-", "+"];
+const operations = ['/', 'x', '-', '+'];
 
 export default operations;
