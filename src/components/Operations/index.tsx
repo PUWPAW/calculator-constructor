@@ -12,8 +12,9 @@ import Container from 'components/Container';
 import './style.css';
 
 function Operations() {
-  const { isEdit } = useGetCalculatorStateSelector();
+  const { isEdit, error } = useGetCalculatorStateSelector();
   const dispatch = useDispatch();
+
   return (
     <Container>
       <div className="operators">
@@ -21,6 +22,7 @@ function Operations() {
           <Button
             key={idx}
             value={opt}
+            disabled={!!error}
             onClick={() => {
               if (!isEdit) {
                 dispatch(performOperation(opt));
